@@ -22,6 +22,10 @@ SET 名義='XXXXX'
 UPDATE 口座
 SET 残高=999999999,更新日 ='2018-03-01'
 
+-- 8
+DELETE FROM 口座
+
+
 -- 59
 update 口座
 set 残高 = 残高 + 
