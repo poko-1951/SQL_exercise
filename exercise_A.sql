@@ -23,8 +23,34 @@ UPDATE 口座
 SET 残高=999999999,更新日 ='2018-03-01'
 
 -- 8
-DELETE FROM 口座
+delete from 口座
 
+-- 9
+select *
+from 口座
+where 口座番号 = '0037651'
+
+-- 10
+select *
+from 口座
+where 残高 > 0
+
+-- 11
+select *
+from 口座
+where 口座番号 < '1000000'
+
+-- 12
+select *
+from 口座
+where 更新日 < '2018-01-01'
+
+-- 13
+select *
+from 口座
+where 残高 > '1000000'
+
+-- 
 
 -- 59
 update 口座
@@ -59,22 +85,22 @@ in (select 口座番号
    )
 
 -- 62
-SELECT * 
-FROM 口座 
+SELECT *
+FROM 口座
 WHERE 更新日 >ALL (SELECT 日付 FROM 取引 )
 
 -- 63
 select A.日付,
-      (SELECT MAX( 入金額 ) 
-       FROM 取引 
-       WHERE 口座番号 = '3104451') AS 最大入金額 , 
-       (SELECT MAX( 出金額 ) 
-        FROM 取引 
+      (SELECT MAX( 入金額 )
+       FROM 取引
+       WHERE 口座番号 = '3104451') AS 最大入金額 ,
+       (SELECT MAX( 出金額 )
+        FROM 取引
         WHERE 口座番号 = '3104451') AS 最大出金額
-from (SELECT 日付 
-      FROM 取引 
-      WHERE 口座番号 = '3104451' 
-      GROUP BY 日付 
+from (SELECT 日付
+      FROM 取引
+      WHERE 口座番号 = '3104451'
+      GROUP BY 日付
       HAVING SUM( 入金額 ) > 0 AND SUM( 出金額 ) > 0) AS A
 
 -- 64
