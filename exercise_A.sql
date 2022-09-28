@@ -50,7 +50,60 @@ select *
 from 口座
 where 残高 > '1000000'
 
--- 
+-- 14
+select *
+from 口座
+where 種別 <> '普通'
+
+-- 15
+select *
+from 口座
+where 更新日 is null
+
+-- 16
+select *
+from 口座
+where 名義 like '%ハシ%'
+
+-- 17
+select *
+from 口座
+where 更新日 > '2017-12-31' 
+and 更新日 < '2018-02-01'
+
+-- 18
+select *
+from 口座
+where 種別 = '2'
+or 種別 = '3'
+
+-- 19
+select *
+from 口座
+where 名義 = 'ハマダ　サトシ'
+or 名義 = 'マツモト　ミワコ'
+or 名義 = 'サカタ　リョウヘイ'
+
+-- 20
+select *
+from 口座
+where 更新日 > '2017-12-30'
+and 更新日 < '2018-01-04'
+
+-- 21
+select *
+from 口座
+where 残高 < '10000'
+and 更新日 is not null
+
+
+-- 22
+select *
+from 口座
+where 口座番号 like '2______'
+and 名義 like 'エ__　%コ'
+
+
 
 -- 59
 update 口座
